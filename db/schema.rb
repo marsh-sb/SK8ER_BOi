@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_132809) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.text "introduction", null: false
-    t.string "profile_image_id", null: false
+    t.text "introduction"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
