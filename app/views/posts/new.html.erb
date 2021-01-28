@@ -1,2 +1,18 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
+
+<%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "投稿内容を入力" %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :image, "写真の追加" %>
+    <%= f.attachment_field :image %>
+  </div>
+  <%= f.submit '投稿' %>
+<% end %>

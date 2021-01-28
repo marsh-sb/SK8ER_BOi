@@ -1,2 +1,12 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_for @post do |f| %>
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body, "投稿内容" %>
+  <%= f.text_area :body %>
+
+  <%= f.label :image, "写真" %>
+  <%= f.attachment_field :image %>
+
+  <%= f.submit '投稿' %>
+<% end %>
