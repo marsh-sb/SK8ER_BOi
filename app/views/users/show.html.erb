@@ -1,0 +1,22 @@
+<h1>マイページ</h1>
+
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.label :name, "ユーザー名", class: "label" %>
+    <%= f.text_field :name, class: "input" %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "メールアドレス", class: "label" %>
+    <%= f.email_field :email, class: "input" %>
+  </div>
+  <div class="field">
+    <%= f.label :introduction, "自己紹介", class: "label" %>
+    <%= f.text_area :introduction, class: "textarea" %>
+  </div>
+  <div class="field">
+    <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+    <%= f.label :profile_image, "プロフィール画像", class: "label" %>
+    <%= f.attachment_field :profile_image, class: "input" %>
+  </div>
+  <%= f.submit "更新" %>
+<% end %>

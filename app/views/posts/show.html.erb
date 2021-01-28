@@ -1,0 +1,20 @@
+<h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+<%= attachment_image_tag @post, :image, size: "300x300" %>
+
+<%= @post.title %>
+
+<%= simple_format @post.body %>
+
+<%= @post.user.name %>
+<%= @post.user.introduction %>
+
+<% if @post.user.id == current_user.id %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+<% end %>
+
+
+<%= link_to user_path(@post.user) do %>
+  <%= @post.user.name %> さんのページへ
+<% end %>
