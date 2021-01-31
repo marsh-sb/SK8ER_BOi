@@ -1,0 +1,24 @@
+<!--ログインユーザー表示-->
+<div class="container">
+  <div class="row">
+    <div>
+      <%= attachment_image_tag user, :profile_image, size: "250x250", fallback: "no-image.jpg" %>
+    </div>
+
+    <div>
+      <%= current_user.name %>
+    </div>
+
+    <div>
+      <%= user.introduction %>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to edit_user_path(current_user) do %>
+      <button type="button" class="btn btn-dark btn-lg">
+        編集する
+      </button>
+    <% end %>
+  </div>
+</div>

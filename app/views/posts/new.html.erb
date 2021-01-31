@@ -1,18 +1,39 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container">
 
-<%= form_for @post do |f| %>
-  <div class="field">
-    <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body, "投稿内容を入力" %>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :image, "写真の追加" %>
-    <%= f.attachment_field :image %>
-  </div>
-  <%= f.submit '投稿' %>
-<% end %>
+  <hr class="border-line"/>
+  <h2>写真・雑談の投稿</h2>
+  <hr class="border-line"/>
+
+  <%= form_with model:@post, local:true do |f| %>
+
+    <div class="row">
+      <h3>写真を追加する</h3></br>
+      <% if @post.image.present? %>
+        <%= attachment_image_tag @post.image %>
+      <% else %>
+        <%= image_tag "no-image.jpg",size: "300x300" %>
+      <% end %>
+      </br>
+      <%= f.attachment_field :image %>
+    </div></br>
+
+    <div class="row">
+      <h3>タイトル</h3>
+      <div class="form-group">
+        <%= f.text_field :title, class:"form-control input-lg" %>
+      </div>
+    </div></br>
+
+    <div class="row">
+      <h3>投稿内容</h3>
+      <div class="form-group">
+        <%= f.text_area :body, rows: "10", cols: "50", class:"form-control" %>
+      </div>
+    </div></br>
+
+    <div class="row">
+        <%= f.submit "投稿する", class:"btn btn-dark btn-lg" %>
+    </div>
+  <% end %>
+
+</div>
