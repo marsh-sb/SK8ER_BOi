@@ -12,6 +12,15 @@
     <div>
       <%= user.introduction %>
     </div>
+    <h3>いいねしている投稿</h3>
+    <% @user.favorited_posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <%= attachment_image_tag post, :image, size: "150x150", style: "border-radius: 15px;" %>
+      <% end %>
+      <%= post.user.name %>
+      <%= post.body %>
+    <% end %>
+    <%= link_to "投稿一覧へ", posts_path %>
   </div>
 
   <div>
