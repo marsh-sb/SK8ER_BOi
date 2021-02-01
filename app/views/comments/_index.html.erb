@@ -1,0 +1,14 @@
+<% post.comments.each do |comment| %>
+  <% comment_user = comment.user %>
+  <tr>
+  	<td>
+    	<%= comment_user.name %>
+  	</td>
+  	<td><%= comment.content %></td>
+  	<% if current_user == comment_user %>
+    	<td><%= link_to 'Destroy', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+  	<% end %>
+  </tr>
+<% end %>
+
+

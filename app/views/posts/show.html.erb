@@ -9,6 +9,7 @@
 <%= @post.user.name %>
 <%= @post.user.introduction %>
 
+
 <% if @post.user.id == current_user.id %>
   <%= link_to "編集する", edit_post_path(@post) %>
 <% end %>
@@ -17,3 +18,33 @@
 <%= link_to user_path(@post.user) do %>
   <%= @post.user.name %> さんのページへ
 <% end %>
+
+
+
+<div class='col-md-8 offset-md-1'>
+  		<h2>投稿詳細</h2>
+  		<table class='table'>
+  		  <tr id="post_<%= @post.id %>">
+  		    <td><%= link_to user_path(@post.user) do %>
+            <%= attachment_image_tag(@post.user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg") %><br>
+            <%= @post.user.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @post.title, post_path(@post) %></td>
+          <td><%= @post.body %></td>
+          <td class="favorite-btn"><%= render "favorites/favorite-btn", post: @post %></td>
+          <td class="comments-count">コメント数: <%= @post.comments.count %></td>
+          <% if @post.user == current_user %>
+            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
+            <td><%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
+          <% end %>
+        </tr>
+      </table>
+      <table class="comments">
+        <%= render 'comments/index', post: @post %>
+      </table>
+      <%= form_with model:[@post,@comment] do |f| %>
+        <%= f.text_area :content, size:"90x5" %>
+        <%= f.submit 'コメントする', class: "btn btn-primary" %>
+      <% end %>
+    </div>
