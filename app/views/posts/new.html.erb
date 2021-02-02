@@ -27,9 +27,18 @@
     <div class="row">
       <h3>投稿内容</h3>
       <div class="form-group">
-        <%= f.text_area :body, rows: "10", cols: "50", class:"form-control" %>
+        <%= f.text_area :body, rows: "10", cols: "50", class:"form-control input-lg" %>
       </div>
     </div></br>
+
+    <div class="row">
+      <h3>タグを付ける</h3>
+      <div class="form-group">
+        <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg"%>
+      </div>
+    </div></br>
+
+
 
     <div class="row">
         <%= f.submit "投稿する", class:"btn btn-dark btn-lg" %>

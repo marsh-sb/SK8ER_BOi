@@ -8,5 +8,13 @@
   <%= f.label :image, "写真" %>
   <%= f.attachment_field :image %>
 
+  <div class="row">
+    <h3>タグを付ける</h3>
+    <div class="form-group">
+      <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg"%>
+    </div>
+  </div></br>
+
+
   <%= f.submit '投稿' %>
 <% end %>

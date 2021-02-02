@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
 
+  acts_as_taggable   # acts_as_taggable_on :tags の省略
+
   with_options presence: true do
     validates :title
     validates :body
