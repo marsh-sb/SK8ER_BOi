@@ -3,13 +3,20 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @tags = Post.tag_counts_on(:tags).order('count DESC')
+    if @tag = params[:tag]   # タグ検索用
+       @post = Post.tagged_with(params[:tag])   # タグに紐付く投稿
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     @favorite = Favorite.new
     @comments = @post.comments
-    @comment = current_user.comments.new 
+    @comment = current_user.comments.new
+    if @tag = params[:tag]
+      @post = Post.tagged_with(params[:tag])
+    end
   end
 
   def new
@@ -52,6 +59,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_list)
   end
 end

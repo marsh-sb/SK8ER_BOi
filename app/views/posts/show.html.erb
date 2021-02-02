@@ -32,6 +32,7 @@
           </td>
           <td><%= link_to @post.title, post_path(@post) %></td>
           <td><%= @post.body %></td>
+          <td>タグ:<%= @post.tag_list %></td>
           <td class="favorite-btn"><%= render "favorites/favorite-btn", post: @post %></td>
           <td class="comments-count">コメント数: <%= @post.comments.count %></td>
           <% if @post.user == current_user %>
