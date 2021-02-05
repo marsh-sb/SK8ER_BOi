@@ -1,20 +1,45 @@
-<%= form_for @post do |f| %>
-  <%= f.label :title, "タイトル" %>
-  <%= f.text_field :title %>
+<div class="container">
+  <hr class="border-line"/>
+    <h2 class="text-center">投稿の編集</h2>
+  <hr class="border-line"/>
 
-  <%= f.label :body, "投稿内容" %>
-  <%= f.text_area :body %>
+  <%= form_for @post do |f| %>
+  <div class="row mx-auto col-6">
+    <div class="input-group m-3">
+      <span class="input-group-text">タイトル</span>
+      <%= f.text_field :title, class:"form-control input-lg" %>
+    </div>
+  </div>
 
-  <%= f.label :image, "写真" %>
-  <%= f.attachment_field :image %>
+  <div class="row mx-auto col-6">
+    <div class="input-group m-3">
+      <span class="input-group-text">投稿内容</span>
+      <%= f.text_area :body, class:"form-control input-lg" %>
+    </div>
+  </div>
 
-  <div class="row">
-    <h3>タグを付ける</h3>
-    <div class="form-group">
+  <div class="row mx-auto col-6">
+    <div class="input-group m-3">
+      <span class="input-group-text">画像の選択</span>
+      <div class="col-12 m-3">
+        <%= attachment_image_tag @post, :image, size: "300x300", style: "border-radius: 15px;", fallback: "no-image.jpg"%>
+      </div>
+      <div class="row m-3">
+        <input class="form-control form-control-lg" id="formFileLg" type="file">
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto col-6">
+    <div class="input-group m-3">
+      <span class="input-group-text">タグを付ける</span>
       <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg"%>
     </div>
-  </div></br>
+  </div>
 
+  <div class="row mx-auto col-6">
+    <%= f.submit "更新する", class:"btn btn-block btn-lg btn-default " %>
+  </div>
 
-  <%= f.submit '投稿' %>
-<% end %>
+  <% end %>
+</div>

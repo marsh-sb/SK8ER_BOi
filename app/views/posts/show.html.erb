@@ -1,51 +1,75 @@
-<h1>投稿詳細</h1>
+<div class="container">
+  <hr class="border-line"/>
+    <h2 class="text-center">投稿詳細</h2>
+  <hr class="border-line"/>
 
-<%= attachment_image_tag @post, :image, size: "300x300" %>
+  <!--投稿者情報-->
+  <div class="row mx-auto col-8">
+    <%= render 'users/other', user: @user %>
+  </div>
 
-<%= @post.title %>
+  <h3><%= @post.user.name %>さんの投稿</h3>
+  <hr class="border-line"/>
 
-<%= simple_format @post.body %>
+  <div class="row mx-auto col-8">
+    <div class="col">
+      <div id="post_<%= @post.id %>">
+        <div class="favorite-btn">
+          <%= render "favorites/favorite-btn", post: @post %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+    コメント数: <%= @post.comments.count %>
+    </div>
+  </div>
+  <!--投稿内容-->
+  <div class="row mx-auto col-8">
+    <div class="col-12">
+      <label>タイトル</label></br>
+      <%= @post.title %>
+    </div>
+    <div class="col-12">
+      <label>内容</label></br>
+      <%= simple_format @post.body %>
+    </div>
+    <div class="col-12">
+      <label>関連するタグ：</label>
+      <% @post.tag_list.each do |tag| %>
+        <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md" do %>
+          <%= tag %>
+        <% end %>
+      <% end %>
+    </div>
 
-<%= @post.user.name %>
-<%= @post.user.introduction %>
+    <div class="row mx-auto col-8">
+      <div class="col-12">
+        <label>投稿画像：</label></br>
+        <%= attachment_image_tag @post, :image, size: "500x300", fallback: "no-image.jpg" %>
+      </div>
+    </div>
+    <div class="row mx-auto col-8">
+      <% if @post.user.id == current_user.id %>
+        <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+        <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+      <% end %>
+    </div>
+  </div>
+  <div>
+  <h3>みんなのコメント</h3>
+  </div>
 
+  <table class="comments">
+    <%= render 'comments/index', post: @post %>
+  </table>
 
-<% if @post.user.id == current_user.id %>
-  <%= link_to "編集する", edit_post_path(@post) %>
-<% end %>
-
-
-<%= link_to user_path(@post.user) do %>
-  <%= @post.user.name %> さんのページへ
-<% end %>
-
-
-
-<div class='col-md-8 offset-md-1'>
-  		<h2>投稿詳細</h2>
-  		<table class='table'>
-  		  <tr id="post_<%= @post.id %>">
-  		    <td><%= link_to user_path(@post.user) do %>
-            <%= attachment_image_tag(@post.user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg") %><br>
-            <%= @post.user.name %>
-            <% end %>
-          </td>
-          <td><%= link_to @post.title, post_path(@post) %></td>
-          <td><%= @post.body %></td>
-          <td>タグ:<%= @post.tag_list %></td>
-          <td class="favorite-btn"><%= render "favorites/favorite-btn", post: @post %></td>
-          <td class="comments-count">コメント数: <%= @post.comments.count %></td>
-          <% if @post.user == current_user %>
-            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
-            <td><%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
-          <% end %>
-        </tr>
-      </table>
-      <table class="comments">
-        <%= render 'comments/index', post: @post %>
-      </table>
+  <div class="row mx-auto col-8">
+    <div class="col-12 mt-5">
       <%= form_with model:[@post,@comment] do |f| %>
         <%= f.text_area :content, size:"90x5" %>
         <%= f.submit 'コメントする', class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+
+  </div>

@@ -1,8 +1,5 @@
 <!--マイページ・ユーザー詳細-->
-
 <div class="container">
-
-  <div class="row">
     <% if @user == current_user %>
       <!--マイページを表示-->
       <%= render 'users/personal', user: @user %>
@@ -10,7 +7,6 @@
       <!--他人の詳細ページ-->
       <%= render 'users/other', user: @user %>
     <% end %>
-  </div>
 
   <!--投稿一覧-->
   <div class="row">
