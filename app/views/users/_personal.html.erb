@@ -1,38 +1,79 @@
 <!--ログインユーザー表示-->
 <div class="container">
+  <hr class="border-line"/>
+    <h2>マイページ</h2>
+  <hr class="border-line"/>
+
   <div class="row">
-    <div>
-      <%= attachment_image_tag user, :profile_image, size: "250x250", fallback: "no-image.jpg" %>
+    <div class="col-2">
+      <div>
+        <label>プロフィール画像：</label></br>
+        <%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no-image.jpg", class:"rounded-circle" %>
+      </div>
     </div>
 
-    <div>
-      <%= current_user.name %>
+    <div class="col-3">
+      <div>
+        <label>ユーザー名：</label></br>
+        <%= current_user.name %>
+      </div>
     </div>
 
-    <div>
-      <%= user.introduction %>
+    <div class="col-3">
+      <div>
+        <label>自己紹介：</label></br>
+        <%= user.introduction %>
+      </div>
     </div>
 
-    <div>
+    <div class="col-1">
       <%= link_to edit_user_path(current_user) do %>
-        <button type="button" class="btn btn-dark btn-lg">
-          編集する
+        <button type="button" class="btn btn-dark btn-sm">
+          編集
         </button>
       <% end %>
     </div>
-
   </div>
-  <div class="row">
-    <h3>いいねしている投稿</h3>
-    <% @user.favorited_posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-        <%= attachment_image_tag post, :image, size: "150x150", style: "border-radius: 15px;" %>
-      <% end %>
 
-      <%= post.user.name %>
-      <%= post.body %>
+
+  <h3>いいねしている投稿</h3>
+  <div class="row">
+    <% @user.favorited_posts.each do |post| %>
+    <div class="row mt-2">
+      <div class="col-12">
+        <div>
+          <%= link_to post_path(post) do %>
+            <%= attachment_image_tag post, :image, size: "50x50", style: "border-radius:35px;" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12">
+        <div>
+          <p>
+            <%= post.user.name %>
+          </p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div>
+          <p>
+            <%= post.body %>
+          </p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div>
+          <p>
+            <% post.tag_list.each do |tag| %>
+              <%= link_to posts_path(tag_name: tag) do %>
+                <%= tag %>
+              <% end %>
+            <% end %>
+          </p>
+        </div>
+      </div>
     <% end %>
-    <%= link_to "投稿一覧へ", posts_path %>
+    </div>
   </div>
 
 </div>

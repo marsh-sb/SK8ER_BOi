@@ -1,21 +1,15 @@
 <!--他人の詳細ページ-->
-<div class="container">
-  <div class="row">
-    <div>
-      <%= link_to user_path(user) do %>
-        <%= attachment_image_tag user, :profile_image, size: "250x250", fallback: "no-image.jpg" %>
-      <% end %>
-    </div>
-
-    <div>
-      <%= user.name %>
-    </div>
-
-    <div>
-      <%= user.introduction %>
-    </div>
-    
-    <!--タグの表示-->
-    
-  </div>
+<div class="col-3">
+  <label>プロフィール画像：</label></br>
+  <%= link_to user_path(user) do %>
+    <%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no-image.jpg", style: "border-radius: 15px;" %>
+  <% end %>
+</div>
+<div class="col-3">
+  <label>投稿者名：</label></br>
+  <%= user.name %>
+</div>
+<div class="col-3">
+  <label>投稿者紹介：</label></br>
+  <%= user.introduction %>
 </div>

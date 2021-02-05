@@ -1,11 +1,21 @@
 <div class="container">
-  <div class="row">
 
-    <hr class="border-line"/>
-      <h2>みんなの投稿</h2>
-    <hr class="border-line"/>
-      <div>
-        <%= render 'posts/post.index', posts: @posts %>
+  <hr class="border-line"/>
+    <h2>みんなの投稿</h2>
+  <hr class="border-line"/>
+
+  <div class="row">
+    <h4>調べる</h4>
+      <div class="col-12">
+        <%= form_tag(posts_path, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '　検索　' %>
+        <% end %>
       </div>
   </div>
+
+  <div class="row">
+    <%= render 'posts/post.index', posts: @posts %>
+  </div>
+
 </div>
