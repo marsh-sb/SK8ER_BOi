@@ -75,3 +75,6 @@ group :production do
 end
 
 gem 'acts-as-taggable-on', '~> 6.0'
+
+# 地図表示機能
+gem 'http'

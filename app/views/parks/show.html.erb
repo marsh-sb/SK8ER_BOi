@@ -1,0 +1,76 @@
+<div class="container">
+  <hr class="border-line"/>
+    <h2 class="text-center">パーク詳細</h2>
+  <hr class="border-line"/>
+
+  <!--投稿者情報-->
+  <div class="row mx-auto col-8">
+    <%#= render 'users/other', user: @park %>
+  </div>
+
+  <h3><%= @park.user.name %>さんの投稿</h3>
+  <hr class="border-line"/>
+
+  <!--投稿内容-->
+  <div class="row mx-auto col-8">
+    <div class="col-12">
+      <label>パーク名</label></br>
+      <%= @park.parkname %>
+    </div>
+    <div class="col-12">
+      <label>説明文</label></br>
+      <%= simple_format @park.parkbody %>
+    </div>
+
+    <div class="row mx-auto col-8">
+      <div class="col-12">
+        <label>投稿画像：</label></br>
+        <%= attachment_image_tag @park, :park_image, size: "500x300", fallback: "no-image.jpg" %>
+      </div>
+    </div>
+
+    <div class="row mx-auto col-8">
+      <div class="col-12">
+        <label>マップ：</label></br>
+        <div id=map></div>
+
+        <script type="text/javascript">
+          function initMap() {
+
+          var test = {lat: <%= @park.latitude %>, lng: <%= @park.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: test
+          });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+
+          var contentString = '住所：<%= @park.address %>';
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+          position:test,
+          map: map,
+          title: contentString
+          });
+
+          marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          });
+          }
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['API_KEY'] %>&callback=initMap">
+        </script>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+
