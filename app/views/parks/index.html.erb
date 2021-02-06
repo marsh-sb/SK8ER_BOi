@@ -1,0 +1,19 @@
+<div class="container">
+  <% @parks.each do |park| %>
+    <div class="row mt-5">
+      <div>
+        <%= link_to park_path(park) do %>
+          <%= attachment_image_tag park, :park_image, size: "150x150", style: "border-radius: 15px;", fallback: "no-image.jpg" %>
+        <% end %>
+      </div>
+      <div>
+        <p>
+          <%= park.parkname %>
+        </p>
+        <p>
+          <%= park.parkbody %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
