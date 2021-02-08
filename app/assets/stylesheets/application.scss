@@ -16,11 +16,13 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Yusei+Magic&display=swap');
 
 * {
   font-family: 'Yusei Magic', sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body {
