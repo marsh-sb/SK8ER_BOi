@@ -35,3 +35,152 @@ img.attachment.user.profile_image.other-image {
 .user-show-other-body {
   margin: 10px 20px 10px 0px;
 }
+
+// マイページ
+.row.user-show-info {
+  width: 80%;
+  margin: auto;
+}
+
+.attachment.user.profile_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  text-align: center;
+}
+
+.user-personal-title {
+  width: 100%;
+  text-align: center;
+}
+
+.user-show-personal-all-box {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 4px solid #a6a6a6;
+  border-radius: 80px;
+}
+
+.user-show-personal-image {
+  margin-bottom: 30px;
+}
+
+.user-show-personal-name {
+  margin: 20px;
+  font-size: 35px;
+}
+
+.user-show-personal-body {
+  margin: 20px;
+}
+
+.user-show-personal-edit-button {
+  text-align: right;
+}
+
+button.btn.btn-default.personal-edit-button {
+  margin-right: 20px;
+  border: 4px solid #a6a6a6;
+  border-radius: 80px;
+}
+
+.user-show-personal-favorite {
+  width: 100%;
+  margin: auto;
+}
+
+h3.user-personal-favorite-title {
+  margin: 40px;
+  text-align: center;
+}
+
+.user-show-personal-favorite-box {
+  width: 60%;
+  border: 4px solid #a6a6a6;
+  border-radius: 80px;
+  text-align: center;
+  margin: auto;
+}
+
+img.attachment.post.image.user-personal-favorite-image {
+  margin: 15px;
+}
+
+hr.border-line.favorite-line {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+h3.user-personal-index-title {
+  width: 100%;
+  text-align: center;
+  margin: 70px 0px 70px 10px;
+}
+
+.user-post-post-index {
+  width: 80%;
+  margin: auto;
+}
+
+h2.user-user-edit-title {
+  text-align: center;
+}
+
+h3.user-user-edit-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.user-user-edit-profile-image-box {
+  width: 100%;
+  text-align: center;
+  margin: 30px;
+}
+
+input#user_profile_image {
+  width: 29%;
+  margin: auto;
+  padding: 25px;
+}
+
+.row.user-user-edit-profile-name {
+  margin-top: 50px;
+}
+
+.form-group-edit {
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.form-group-edit-name {
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 41%;
+  margin-left: 30%;
+}
+
+.row.user-user-edit-profile-text {
+  margin: 50px;
+}
+
+.row.user-user-edit-profile-update-button {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+input.btn.btn-default.btn-lg.user-edit-button {
+  width: 16%;
+  border: 4px solid #a6a6a6;
+  border-radius: 80px;
+  margin: auto;
+  margin-bottom: 65px;
+}
