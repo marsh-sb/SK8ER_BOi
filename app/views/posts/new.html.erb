@@ -1,47 +1,46 @@
 <div class="container">
-
   <hr class="border-line"/>
-  <h2>写真・雑談の投稿</h2>
+    <h2 class="text-center">新規投稿する</h2>
   <hr class="border-line"/>
-
   <%= form_with model:@post, local:true do |f| %>
 
-    <div class="row">
-      <h3>写真を追加する</h3></br>
-      <% if @post.image.present? %>
-        <%= attachment_image_tag @post.image %>
-      <% else %>
-        <%= image_tag "no-image.jpg",size: "300x300" %>
-      <% end %>
-      </br>
-      <%= f.attachment_field :image %>
-    </div></br>
+    <div class="row new-post-box">
+      <h3 class="new-post-subtitle">タイトルをつける</h3>
+        <div class="form-group">
+          <%= f.text_field :title, class:"form-control input-lg" %>
+        </div>
+    </div>
 
-    <div class="row">
-      <h3>タイトル</h3>
-      <div class="form-group">
-        <%= f.text_field :title, class:"form-control input-lg" %>
-      </div>
-    </div></br>
+    <div class="row new-post-box">
+      <h3 class="new-post-subtitle">投稿内容</h3>
+        <div class="form-group">
+          <%= f.text_area :body, rows: "10", cols: "50", class:"form-control input-lg" %>
+        </div>
+    </div>
 
-    <div class="row">
-      <h3>投稿内容</h3>
-      <div class="form-group">
-        <%= f.text_area :body, rows: "10", cols: "50", class:"form-control input-lg" %>
-      </div>
-    </div></br>
+    <div class="row new-post-box">
+      <h3 class="new-post-subtitle">画像の選択</h3>
+        <div class="new-post-image-box">
+          <% if @post.image.present? %>
+            <%= attachment_image_tag @post.image, class: "new-post-image", style: "border-radius: 15px;" %>
+          <% else %>
+            <%= image_tag "no-image.jpg", class: "new-post-image", style: "border-radius: 15px;" %>
+          <% end %>
+        </div>
+        <div class="new-post-image-button">
+          <%= f.attachment_field :image %>
+        </div>
+    </div>
 
-    <div class="row">
-      <h3>タグを付ける</h3>
-      <div class="form-group">
-        <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg"%>
-      </div>
-    </div></br>
+    <div class="row new-post-box">
+      <h3 class="new-post-subtitle">タグを付ける</h3>
+        <div class="form-group">
+          <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg", placeholder:"複数追加するときは「,」を入れてください" %>
+        </div>
+    </div>
 
-
-
-    <div class="row">
-        <%= f.submit "投稿する", class:"btn btn-dark btn-lg" %>
+    <div class="row new-post-box">
+      <%= f.submit "投稿する", class:"btn btn-default btn-lg new-post-post-button" %>
     </div>
   <% end %>
 

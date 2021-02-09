@@ -1,75 +1,76 @@
-<div class="container">
+<div class="container post-show">
   <hr class="border-line"/>
     <h2 class="text-center">投稿詳細</h2>
   <hr class="border-line"/>
 
   <!--投稿者情報-->
-  <div class="row mx-auto col-8">
-    <%= render 'users/other', user: @user %>
-  </div>
+  <div class="row post-show-post-all-box">
+    <div class="post-show-user-other">
+      <%= render 'users/other', user: @user %>
+    </div>
+    <hr class="border-line"/>
 
-  <h3><%= @post.user.name %>さんの投稿</h3>
-  <hr class="border-line"/>
+    <div class="row post-show-post-username">
+      <h3><%= @post.user.name %>さんの投稿</h3>
+      <hr class="border-line"/>
+    </div>
 
-  <div class="row mx-auto col-8">
-    <div class="col">
-      <div id="post_<%= @post.id %>">
-        <div class="favorite-btn">
-          <%= render "favorites/favorite-btn", post: @post %>
+    <div class="row post-show-post-box">
+      <div class="post-show-post-box-text">
+        <div class="post-show-post-favcom">
+          <div class="post-show-post-favorite">
+            <div id="post_<%= @post.id %>">
+              <div class="favorite-btn">
+                <%= render "favorites/favorite-btn", post: @post %>
+              </div>
+            </div>
+          </div>
+          <div class="post-show-post-comment-count">
+            コメント数: <%= @post.comments.count %>
+          </div>
+        </div>
+      <!--投稿内容-->
+        <div class="post-show-post-title">
+          <%= @post.title %>
+        </div>
+        <div class="post-show-post-body">
+          <%= simple_format @post.body %>
+        </div>
+        <div class="post-show-post-tag">
+          <% @post.tag_list.each do |tag| %>
+            <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md tag-button" do %>
+              <%= tag %>
+            <% end %>
+          <% end %>
         </div>
       </div>
-    </div>
-    <div class="col">
-    コメント数: <%= @post.comments.count %>
-    </div>
-  </div>
-  <!--投稿内容-->
-  <div class="row mx-auto col-8">
-    <div class="col-12">
-      <label>タイトル</label></br>
-      <%= @post.title %>
-    </div>
-    <div class="col-12">
-      <label>内容</label></br>
-      <%= simple_format @post.body %>
-    </div>
-    <div class="col-12">
-      <label>関連するタグ：</label>
-      <% @post.tag_list.each do |tag| %>
-        <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md" do %>
-          <%= tag %>
-        <% end %>
-      <% end %>
-    </div>
 
-    <div class="row mx-auto col-8">
-      <div class="col-12">
-        <label>投稿画像：</label></br>
-        <%= attachment_image_tag @post, :image, size: "500x300", fallback: "no-image.jpg" %>
+      <div class="post-show-post-image-box">
+        <div class="post-show-post-image">
+          <%= attachment_image_tag @post, :image, fallback: "no-image.jpg", class: "show-post-image" %>
+        </div>
       </div>
-    </div>
-    <div class="row mx-auto col-8">
-      <% if @post.user.id == current_user.id %>
-        <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-        <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
-      <% end %>
-    </div>
-  </div>
-  <div>
-  <h3>みんなのコメント</h3>
-  </div>
+      <div class="post-show-post-edit">
+        <% if @post.user.id == current_user.id %>
+          <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-default edit_post_#{@post.id}" %>
+          <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-default destroy_post_#{@post.id}"%>
+        <% end %>
+      </div>
+      <div class="post-show-post-comment-box">
+        <div class="post-show-post-comment-title">
+          <h3>みんなのコメント</h3>
+        </div>
+        <table class="comments">
+          <%= render 'comments/index', post: @post %>
+        </table>
+        <div class="comments-form">
+          <%= form_with model:[@post,@comment] do |f| %>
+            <%= f.text_area :content, placeholder: "コメントを書こう！", size:"90x5", class: "post-show-comment-form" %>
+            <%= f.submit 'コメントする', class: "btn btn-default comment-button" %>
+          <% end %>
+        </div>
+      </div>
 
-  <table class="comments">
-    <%= render 'comments/index', post: @post %>
-  </table>
-
-  <div class="row mx-auto col-8">
-    <div class="col-12 mt-5">
-      <%= form_with model:[@post,@comment] do |f| %>
-        <%= f.text_area :content, size:"90x5" %>
-        <%= f.submit 'コメントする', class: "btn btn-primary" %>
-      <% end %>
     </div>
   </div>
-
-  </div>
+</div>

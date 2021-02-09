@@ -1,3 +1,52 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-show-post-comment-box {
+  margin: 20px 20px 50px 20px;
+}
+
+.post-show-post-comment-title {
+  margin-bottom: 50px;
+}
+
+img.attachment.user.profile_image.comment-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+table.comments {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+th.comment-user-image {
+  width: 100%;
+}
+
+tr.comment-user-profile-box {
+  width: 100%;
+}
+
+tr.comment-user-body-box {
+  width: 100%;
+}
+
+td.comment-delete {
+  text-align: right;
+}
+
+textarea#comment_content {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+input.btn.btn-default.comment-button {
+  text-align: center;
+  width: 20%;
+  border: 3px solid #21252996;
+  border-radius: 80px;
+  margin-left: 80%;
+}
