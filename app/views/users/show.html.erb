@@ -1,17 +1,14 @@
 <!--マイページ・ユーザー詳細-->
-<div class="container">
+<div class="container user-show">
+
     <% if @user == current_user %>
-      <!--マイページを表示-->
       <%= render 'users/personal', user: @user %>
     <% else %>
-      <!--他人の詳細ページ-->
       <%= render 'users/other', user: @user %>
     <% end %>
 
-  <!--投稿一覧-->
-  <div class="row">
-    <h1>投稿一覧</h1>
-    <%= render 'posts/post.index', post: @posts %>
-  </div>
+    <div class="user-post-post-index">
+      <%= render 'posts/post.index', post: @posts %>
+    </div>
 
 </div>

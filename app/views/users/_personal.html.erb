@@ -1,79 +1,47 @@
 <!--ログインユーザー表示-->
-<div class="container">
+<div class="user-personal-title">
   <hr class="border-line"/>
-    <h2>マイページ</h2>
+    <h2 class="user-personal-title-title">マイページ</h2>
   <hr class="border-line"/>
+</div>
 
-  <div class="row">
-    <div class="col-2">
-      <div>
-        <label>プロフィール画像：</label></br>
-        <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", class:"rounded-circle" %>
-      </div>
+<div class="user-show-personal-all-box">
+  <div class="user-show-personal-image">
+    <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", class:"user-personal-image" %>
+  </div>
+  <div class="user-show-personal-box">
+    <div class="user-show-personal-name">
+      <%= current_user.name %>
     </div>
-
-    <div class="col-3">
-      <div>
-        <label>ユーザー名：</label></br>
-        <%= current_user.name %>
-      </div>
+    <div class="user-show-personal-body">
+      <%= user.introduction %>
     </div>
-
-    <div class="col-3">
-      <div>
-        <label>自己紹介：</label></br>
-        <%= user.introduction %>
-      </div>
-    </div>
-
-    <div class="col-1">
+    <div class="user-show-personal-edit-button">
       <%= link_to edit_user_path(current_user) do %>
-        <button type="button" class="btn btn-dark btn-sm">
-          編集
+        <button type="button" class="btn btn-default personal-edit-button">
+          編集する
         </button>
       <% end %>
     </div>
   </div>
+</div>
 
-
-  <h3>いいねしている投稿</h3>
-  <div class="row">
+<div class="user-show-personal-favorite">
+  <h3 class="user-personal-favorite-title">いいねしている投稿</h3>
+    <div class="user-show-personal-favorite-box">
     <% @user.favorited_posts.each do |post| %>
-    <div class="row mt-2">
-      <div class="col-12">
-        <div>
-          <%= link_to post_path(post) do %>
-            <%= attachment_image_tag post, :image, size: "50x50", style: "border-radius:35px;" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-12">
-        <div>
-          <p>
-            <%= post.user.name %>
-          </p>
-        </div>
-      </div>
-      <div class="col-12">
-        <div>
-          <p>
-            <%= post.body %>
-          </p>
-        </div>
-      </div>
-      <div class="col-12">
-        <div>
-          <p>
-            <% post.tag_list.each do |tag| %>
-              <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md tag-button" do %>
-                <%= tag %>
-              <% end %>
-            <% end %>
-          </p>
-        </div>
-      </div>
+      <%= link_to post_path(post) do %>
+        <%= attachment_image_tag post, :image, fallback: "no-image.jpg", size: "70x70", style: "border-radius:35px;", class:"user-personal-favorite-image" %>
+      <% end %>
+      <p class="user-show-personal-favorite-post-name">
+        <%= post.user.name %>
+      </p>
+      <p class="user-show-personal-favorite-post-title">
+        <%= post.title %>
+      </p>
+      <hr class="border-line favorite-line"/>
     <% end %>
     </div>
-  </div>
-
 </div>
+
+<h3 class="user-personal-index-title">今までの投稿</h3>
