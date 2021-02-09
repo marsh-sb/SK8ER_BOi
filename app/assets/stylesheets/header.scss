@@ -1,4 +1,3 @@
-
 $min-width: 120px;
 $maincolor: #6BBE92;
 $secondarycolor: #3E8760;
@@ -16,15 +15,6 @@ $secondarycolor: #3E8760;
           transition: ($value);
 }
 
-*{
-  box-sizing: border-box;
-}
-body{
-  font-family: 'Open Sans', sans-serif;
-  background: #374954;
-  color: white;
-  text-align: center;
-}
 
 #main{
   position: relative;

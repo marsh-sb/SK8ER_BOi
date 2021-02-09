@@ -8,7 +8,7 @@
     <div class="col-2">
       <div>
         <label>プロフィール画像：</label></br>
-        <%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no-image.jpg", class:"rounded-circle" %>
+        <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", class:"rounded-circle" %>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
         <div>
           <p>
             <% post.tag_list.each do |tag| %>
-              <%= link_to posts_path(tag_name: tag) do %>
+              <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md tag-button" do %>
                 <%= tag %>
               <% end %>
             <% end %>

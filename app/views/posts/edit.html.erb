@@ -22,7 +22,7 @@
     <div class="input-group m-3">
       <span class="input-group-text">画像の選択</span>
       <div class="col-12 m-3">
-        <%= attachment_image_tag @post, :image, size: "300x300", style: "border-radius: 15px;", fallback: "no-image.jpg"%>
+        <%= attachment_image_tag @post, :image, style: "border-radius: 15px;", fallback: "no-image.jpg", class: "post-edit-post-image" %>
       </div>
       <div class="row m-3">
         <input class="form-control form-control-lg" id="formFileLg" type="file">
@@ -33,7 +33,7 @@
   <div class="row mx-auto col-6">
     <div class="input-group m-3">
       <span class="input-group-text">タグを付ける</span>
-      <%= f.text_field :tag_list, value: @post.tag_list.join(','), class:"form-control input-lg"%>
+      <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control input-lg" %>
     </div>
   </div>
 

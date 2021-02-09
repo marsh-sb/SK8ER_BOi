@@ -1,22 +1,31 @@
 <!--投稿一覧表示-->
-<div class="container">
   <% @posts.each do |post| %>
-    <div class="row mt-5">
-      <div>
+    <div class="row post-index-post">
+      <div class="post-index-post-image">
         <%= link_to post_path(post) do %>
-          <%= attachment_image_tag post, :image, size: "150x150", style: "border-radius: 15px;", fallback: "no-image.jpg" %>
+          <%= attachment_image_tag post, :image, fallback: "no-image.jpg", class: "post-index-post-image" %>
         <% end %>
       </div>
-      <div>
-        <p>
+      <div class="post-index-post-box">
+        <p class="post-index-post-user-name">
+          <i class="fas fa-user-circle"></i>
+          <%= post.user.name %>
+        </p>
+        <p class="post-index-post-title">
           <%= post.title %>
         </p>
-        <p>
+        <p class="post-index-post-body">
           <%= post.body %>
         </p>
-        <p>
+        <p class="post-index-post-favcom">
+          <i class="fas fa-heart"></i>
+          <%= post.favorites.count %>
+          <i class="far fa-comment"></i>
+          <%= post.comments.count %>
+        </p>
+        <p class="post-index-post-tag">
           <% post.tag_list.each do |tag| %>
-            <%= link_to posts_path(tag_name: tag) do %>
+            <%= link_to posts_path(tag_name: tag), class: "btn btn-default btn-md tag-button" do %>
               <%= tag %>
             <% end %>
           <% end %>
@@ -24,5 +33,4 @@
       </div>
     </div>
   <% end %>
-</div>
 
