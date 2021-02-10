@@ -1,26 +1,43 @@
-<div class="container">
+<div class="container post-park">
   <hr class="border-line"/>
     <h2 class="text-center">パーク詳細</h2>
   <hr class="border-line"/>
 
   <!--投稿内容-->
   <div class="row park-show-all-box">
-    <div class="col-12">
-      <h2><%= @park.parkname %></h2>
-    </div>
-    <div class="col-12">
-      <h5><%= simple_format @park.parkbody %></h5>
+    <div class="park-show-parkname">
+      <h2 class="park-show-parkname-parkname">
+        <%= @park.parkname %>
+      </h2>
     </div>
 
-    <div class="row mx-auto col-8">
-      <div class="col-12">
-        <%= attachment_image_tag @park, :park_image, size: "500x300", fallback: "no-image.jpg" %>
+    <div class="park-show-park-image">
+      <%= attachment_image_tag @park, :park_image, fallback: "no-image.jpg", class: "park-show-park-image-size" %>
+    </div>
+
+    <div class="park-show-parkbody">
+      <h5 class="park-show-parkbody-parkbody">
+        <%= @park.parkbody %>
+      </h5>
+    </div>
+
+    <div class="post-show-post-edit">
+      <% if @park.user.id == current_user.id %>
+        <%= link_to "編集", edit_park_path(@park), class: "btn btn-sm btn-default edit_post_#{@park.id}" %>
+        <%= link_to '削除', park_path(@park), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-default destroy_post_#{@park.id}"%>
+      <% end %>
+    </div>
+
+    <div class="park-show-park-map-box">
+      <div class="park-show-park-map-title">
+        <h3 class="park-show-park-map-title-subtitle">
+          パークエリア詳細
+        </h3>
       </div>
-    </div>
-
-    <div class="row mx-auto col-8">
-      <div class="col-12">
-        <label>マップ：</label></br>
+      <div class="park-show-park-map-address">
+        <%= @park.address %>
+      </div>
+      <div class="park-show-park-map-mapimage">
         <div id=map></div>
 
         <script type="text/javascript">

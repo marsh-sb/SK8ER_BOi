@@ -1,5 +1,5 @@
 <!--マイページ・ユーザー詳細-->
-<div class="container user-show">
+<div class="container post-park">
 
     <% if @user == current_user %>
       <%= render 'users/personal', user: @user %>
@@ -7,6 +7,7 @@
       <%= render 'users/other', user: @user %>
     <% end %>
 
+    <h3 class="user-personal-index-title">投稿一覧</h3>
     <div class="user-post-post-index">
       <%= render 'posts/post.index', post: @posts %>
     </div>

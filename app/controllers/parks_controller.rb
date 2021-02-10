@@ -23,6 +23,30 @@ class ParksController < ApplicationController
     end
   end
 
+  def edit
+    @park = Park.find(params[:id])
+    if  @park.user == current_user
+      render "edit"
+    else
+      redirect_to posts_path
+    end
+  end
+
+  def update
+    @park = Park.find(params[:id])
+    if @park.update(park_params)
+      redirect_to park_path(@park)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    park = Park.find(params[:id])
+    park.destroy
+    redirect_to parks_path(park.user)
+  end
+
 
   private
 

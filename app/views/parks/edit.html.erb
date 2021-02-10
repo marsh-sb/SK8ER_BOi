@@ -1,20 +1,27 @@
 <div class="container post-park">
   <hr class="border-line"/>
-    <h2 class="text-center">投稿の編集</h2>
+    <h2 class="text-center">パークの編集</h2>
   <hr class="border-line"/>
 
-  <%= form_for @post do |f| %>
+  <%= form_for @park do |f| %>
   <div class="row mx-auto col-6">
     <div class="input-group m-3">
-      <span class="input-group-text">タイトル</span>
-      <%= f.text_field :title, class:"form-control input-lg" %>
+      <span class="input-group-text">パーク名</span>
+      <%= f.text_field :parkname, class:"form-control input-lg" %>
     </div>
   </div>
 
   <div class="row mx-auto col-6">
     <div class="input-group m-3">
-      <span class="input-group-text">投稿内容</span>
-      <%= f.text_area :body, class:"form-control input-lg" %>
+      <span class="input-group-text">パークの説明</span>
+      <%= f.text_area :parkbody, class:"form-control input-lg" %>
+    </div>
+  </div>
+
+  <div class="row mx-auto col-6">
+    <div class="input-group m-3">
+      <span class="input-group-text">パークの住所</span>
+      <%= f.text_area :address, class:"form-control input-lg" %>
     </div>
   </div>
 
@@ -22,18 +29,11 @@
     <div class="input-group m-3">
       <span class="input-group-text">画像の選択</span>
       <div class="col-12 m-3">
-        <%= attachment_image_tag @post, :image, style: "border-radius: 15px;", fallback: "no-image.jpg", class: "post-edit-post-image" %>
+        <%= attachment_image_tag @park, :park_image, style: "border-radius: 15px;", fallback: "no-image.jpg", class: "post-edit-post-image" %>
       </div>
       <div class="row m-3">
         <input class="form-control form-control-lg" id="formFileLg" type="file">
       </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto col-6">
-    <div class="input-group m-3">
-      <span class="input-group-text">タグを付ける</span>
-      <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control input-lg" %>
     </div>
   </div>
 

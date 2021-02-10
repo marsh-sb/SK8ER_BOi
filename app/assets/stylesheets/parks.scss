@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map {
-  height: 400px;
+  height: 600px;
   margin-left:auto;
   margin-right:auto;
   text-align:left;
@@ -26,7 +26,44 @@ img.attachment.park.park_image.park-index-park-image {
 
 .row.park-show-all-box {
   width: 100%;
+  margin: auto;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 70px;
+}
+
+.park-show-parkname {
+  width: 100%;
+  margin: 25px;
+}
+
+.park-show-park-image {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+img.attachment.park.park_image.park-show-park-image-size {
+  width: 80%;
+  border-radius: 20px;
+}
+
+.park-show-parkbody {
+  width: 75%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.park-show-park-map-box {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.park-show-park-map-title {
+  margin: 40px;
+}
+
+.park-show-park-map-address {
+  margin: 30px;
 }
