@@ -3,28 +3,17 @@
     <h2 class="text-center">パーク詳細</h2>
   <hr class="border-line"/>
 
-  <!--投稿者情報-->
-  <div class="row mx-auto col-8">
-    <%#= render 'users/other', user: @park %>
-  </div>
-
-  <h3><%= @park.user.name %>さんの投稿</h3>
-  <hr class="border-line"/>
-
   <!--投稿内容-->
-  <div class="row mx-auto col-8">
+  <div class="row park-show-all-box">
     <div class="col-12">
-      <label>パーク名</label></br>
-      <%= @park.parkname %>
+      <h2><%= @park.parkname %></h2>
     </div>
     <div class="col-12">
-      <label>説明文</label></br>
-      <%= simple_format @park.parkbody %>
+      <h5><%= simple_format @park.parkbody %></h5>
     </div>
 
     <div class="row mx-auto col-8">
       <div class="col-12">
-        <label>投稿画像：</label></br>
         <%= attachment_image_tag @park, :park_image, size: "500x300", fallback: "no-image.jpg" %>
       </div>
     </div>
@@ -64,13 +53,9 @@
         <script async defer
           src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['API_KEY'] %>&callback=initMap">
         </script>
-
-
       </div>
     </div>
-
-
-
   </div>
+</div>
 
 
