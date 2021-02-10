@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
-  get "search" => "users#search"
+  get "search" => "posts#search"
 
   resources :posts do
     resource :favorites, only: [:create, :destroy]

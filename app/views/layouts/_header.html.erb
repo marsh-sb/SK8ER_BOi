@@ -9,20 +9,27 @@
       </div>
       <ul id="main">
         <li>
-          <%= link_to 'マイページ',user_path(current_user), class: "btn btn-default btn-sm far fa-id-card" %>
-
+          <%= link_to 'マイページ',user_path(current_user), class: "btn btn-default far fa-id-card" %>
         </li>
-        <li><i class="far fa-file-alt"></i>投稿関連
-      <ul class="drop">
-        <div>
-          <li><%= link_to '投稿一覧',posts_path, class: "btn btn-default btn-sm fas fa-snowboarding" %>
-          <li><%= link_to '投稿する',new_post_path, class: "btn btn-default btn-sm far fa-edit" %></li>
-          <li>パークの追加<i class="fas fa-map-marked-alt"></i></li>
-        </div>
-      </ul>
+        <li>
+          <i class="fas fa-snowboarding index-list">みんなの投稿</i>
+          <ul class="drop">
+            <div>
+              <li><%= link_to '投稿一覧',posts_path, class: "btn btn-default far fa-file-alt post-park-list" %></li>
+              <li><%= link_to 'パーク一覧',parks_path, class: "btn btn-default fas fa-map-marked-alt" %></li>
+            </div>
+          </ul>
         </li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default btn-sm fas fa-sign-out-alt" %></li>
-        <li><i class="far fa-envelope"></i>お問い合わせ</li>
+        <li>
+          <i class="fas fa-snowboarding index-list">投稿する</i>
+          <ul class="drop">
+            <div>
+              <li><%= link_to '投稿する',new_post_path, class: "btn btn-default far fa-edit post-park-list" %></li>
+              <li><%= link_to 'パーク追加',new_park_path, class: "btn btn-default far fa-edit post-park-list" %></li>
+            </div>
+          </ul>
+        </li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default fas fa-sign-out-alt" %></li>
         <div id="marker"></div>
       </ul>
     </div>
