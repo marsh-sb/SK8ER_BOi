@@ -16,12 +16,9 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  def Post.search(search, user_or_post)
-    if user_or_post == "2"
-       Post.where(['title LIKE ?', "%#{search}%"])
-    else
-       Post.all
-    end
+  def self.search(search)
+    return Post.all unless search
+    Post.where(["title LIKE ? OR body LIKE ?", "%#{search}%", "%#{search}%"])
   end
 
 end

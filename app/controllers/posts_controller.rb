@@ -9,6 +9,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:search])
+    @value = params[:search]
+  end
+
   def show
     @post = Post.find(params[:id])
     @user = @post.user
