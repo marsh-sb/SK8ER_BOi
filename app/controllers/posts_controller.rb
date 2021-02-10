@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @tags = Post.tag_counts_on(:tags).order('count DESC')
-    if @tag = params[:tag]   # タグ検索用
-       @post = Post.tagged_with(params[:tag])   # タグに紐付く投稿
+    if @tag = params[:tag_name]   # タグ検索用
+       @posts = Post.tagged_with(params[:tag_name])   # タグに紐付く投稿
     end
   end
 

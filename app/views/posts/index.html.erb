@@ -1,7 +1,11 @@
 <div class="container post-index">
   <div class="post-index-title">
     <hr class="border-line"/>
-      <h2 class="post-index-title-title">みんなの投稿</h2>
+      <% if @tag %>
+        <h2 class="post-index-title-title">" <%= @tag %> "に関する投稿</h2>
+      <% else %>
+        <h2 class="post-index-title-title">みんなの投稿</h2>
+      <% end %>
     <hr class="border-line"/>
   </div>
 
