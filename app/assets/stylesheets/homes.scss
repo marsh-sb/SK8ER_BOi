@@ -18,11 +18,11 @@
   display: inline-block;
   position: relative;
   padding: 0.25em 1em;
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
+  border-top: solid 2px #0000005e;
+  border-bottom: solid 2px #0000005e;
   text-decoration: none;
   font-weight: bold;
-  color: #03A9F4;
+  color: #00751bbd;
 }
 .btn-cross:before, .btn-cross:after {
   content: '';
@@ -31,7 +31,7 @@
   width: 2px;
   height: -webkit-calc(100% + 14px);
   height: calc(100% + 14px);
-  background-color: black;
+  background-color: #0000005e;
   transition: .3s;
 }
 .btn-cross:before {
@@ -51,3 +51,87 @@
   height: 100%;
 }
 
+.row.homes-top-top-all {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.top-message-box {
+    width: 100%;
+    margin-top: 150px;
+    font-family: 'Londrina Shadow', cursive;
+    color: #00000085;
+}
+
+h1.top-message-title {
+    margin: 50px;
+    font-size: 90px;
+}
+
+p.top-message-title-subtitle {
+  margin-top: 40px;
+  font-size: 38px;
+}
+
+.top-btn-about-btn-box {
+    margin: 130px;
+}
+
+.top-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+.top-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.about-message-title-subtitle {
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+h3.about-message-body {
+  margin: 60px;
+}
+
+.about-message-exsample-box {
+    border: 2px solid;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+.about-message-exsample-body {
+    margin-top: 15px;
+}
+
+.top-btn-menu {
+    margin-top: 150px;
+    font-family: 'Londrina Shadow', cursive;
+}
+
+p.top-btn-menu-text {
+    font-size: 38px;
+}
+
+i.fas.fa-sort-down {
+    font-size: 75px;
+    opacity: 0.9;
+}
+
+.about-message-title-subtitle {
+    margin-bottom: 150px;
+    margin-top: 135px;
+}
+
+.top-btn-menu-about {
+    width: 100%;
+    margin-top: 200px;
+    font-family: 'Londrina Shadow', cursive;
+    color: #00000085;
+}

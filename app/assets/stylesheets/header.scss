@@ -1,6 +1,6 @@
 $min-width: 195px;
-$maincolor: #6BBE92;
-$secondarycolor: #3E8760;
+$maincolor: #4ca04c57;
+$secondarycolor: #3e876082;
 
 @mixin transform($value){
   -webkit-transform: ($value);
@@ -94,3 +94,4 @@ a.btn.btn-default.post-park-list {
     }
   }
 }
+
