@@ -4,6 +4,9 @@
   <hr class="border-line"/>
 
   <%= form_for @park do |f| %>
+  <div class="row new-park-error_message">
+    <%= render 'layouts/error_message', model: @park %>
+  </div>
   <div class="row mx-auto col-6">
     <div class="input-group m-3">
       <span class="input-group-text">パーク名</span>

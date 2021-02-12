@@ -4,6 +4,10 @@
   <hr class="border-line"/>
   <%= form_with model:@park, local:true do |f| %>
 
+    <div class="row new-park-error_message">
+      <%= render 'layouts/error_message', model: @park %>
+    </div>
+
     <div class="row new-post-box">
       <h3 class="new-post-subtitle">パーク名</h3>
         <div class="form-group">

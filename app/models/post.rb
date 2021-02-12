@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   acts_as_taggable   # acts_as_taggable_on :tags の省略
 
   with_options presence: true do
-    validates :title
+    validates :title, length: { maximum: 25 }
     validates :body
   end
 

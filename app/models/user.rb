@@ -16,7 +16,10 @@ class User < ApplicationRecord
   has_many :favorited_posts, through: :favorites, source: :post
   has_many :comments
 
-  validates :name, presence: true
+  with_options presence: true do
+    validates :name, length: { minimum: 2 }
+    validates :email
+  end
 
   def already_favorited?(post)
     self.favorites.exists?(post_id: post.id)

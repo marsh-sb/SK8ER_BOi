@@ -4,6 +4,14 @@ class Park < ApplicationRecord
   # geocoded_by :address
   after_validation :geocode
 
+  with_options presence: true do
+    validates :parkname, length: { maximum: 25 }
+    validates :parkbody
+    validates :address
+    validates :latitude
+    validates :longitude
+  end
+
 
   private
   def geocode

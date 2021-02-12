@@ -4,6 +4,9 @@
   <hr class="border-line"/>
   <%= form_with model:@user, local: true do |f| %>
   <!--プロフィール編集フォーム-->
+    <div class="row new-park-error_message">
+      <%= render 'layouts/error_message', model: @user %>
+    </div>
     <div class="row user-user-edit-profile-image">
       <h3 class="user-user-edit-title">プロフィール画像</h3>
       <div class="user-user-edit-profile-image-box">
