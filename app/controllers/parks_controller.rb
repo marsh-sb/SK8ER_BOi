@@ -2,6 +2,8 @@ class ParksController < ApplicationController
 
   def index
     @parks = Park.all
+             .order(created_at: :desc)
+             .page(params[:page]).per(10)
   end
 
   def show

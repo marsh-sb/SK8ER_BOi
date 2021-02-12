@@ -26,4 +26,9 @@
       <%= render 'posts/post.index', posts: @posts %>
     </div>
   </div>
+
+  <div class="post-index-pagination">
+    <%= paginate @posts %>
+  </div>
+
 </div>
