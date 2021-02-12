@@ -1,23 +1,39 @@
 <div class="top-background" >
   <div class="container">
     <!--サイトの説明-->
-    <div class="row">
-
-    <h1>SK8ER Boi</h1>
-
-    <div class="btn-wrapper col-10 mx-auto text-center">
-        <div class="pt-5">
-          <%= link_to 'SK8ER BOiとは',home_about_path, class: "btn-cross" %>
+    <div class="row homes-top-top-all">
+      <div class="top-message-box">
+        <h1 class="top-message-title">SK8ER Boi</h1>
+        <p class="top-message-title-subtitle">
+          You never know until you try it !
+        </p>
+        <div class="top-btn-about-btn-box">
+          <div class="top-btn">
+            <%= link_to 'SK8ER BOiとは',home_about_path, class: "btn-cross" %>
+          </div>
         </div>
-        <div class="pt-5">
+        <div class="top-btn-menu">
+          <p class="top-btn-menu-text">
+            Let's give it a go together !
+          </p>
+          <i class="fas fa-sort-down"></i>
+        </div>
+      </div>
+
+      <div class="top-btn-box">
+        <div class="top-btn">
           <%= link_to '新規登録',new_user_registration_path, class: "btn-cross" %>
         </div>
-        <div class="pt-5">
+        <div class="top-btn">
           <%= link_to 'ログイン',new_user_session_path, class: "btn-cross" %>
         </div>
-        <div class="pt-5">
-          <%= link_to 'ゲストログイン',users_guest_sign_in_path, method: :post, class: "btn-cross" %>
+      </div>
+      <div class="top-btn-box">
+        <div class="top-btn">
+          <%= link_to 'ゲストログインはこちら',users_guest_sign_in_path, method: :post, class: "btn-cross" %>
         </div>
-    </div>
+      </div>
 
+    </div>
+  </div>
 </div>
