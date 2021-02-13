@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# SK8ER_BOi
 
-Things you may want to cover:
+## サイト概要
+スケボーに興味を持って始めて見たい人や、初心者スケーターなどが気軽に投稿できてコミュニケーションを取る事ができる投稿サイトです
 
-* Ruby version
+### サイトテーマ
+スケーター同士のコミュニケーション
 
-* System dependencies
+### テーマを選んだ理由
+スケボーを始めようとした時に「何を買えばいいか」「どこで練習したらいいかなど」分からず迷ってしまった経験がありました。また周りにあまりやってる人がいなかったので、情報交換をしつつスケーター同士で繋がれるサイトなどがあればいいなと思いました。
 
-* Configuration
+### ターゲットユーザ
+スケボーに興味を持ち始めている人
+初心者スケーター
 
-* Database creation
+### 主な利用シーン
+お気に入りのスケボーやオススメのアイテムを紹介したい
+練習しやすい環境やパークを教えたい
+自分が習得できたスキルを見て欲しい　など
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1mvLCylAAfQQ3SFLUAWxPeEb2ywoNPSJ_lI_H3-wf5Zk/edit#gid=0
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
