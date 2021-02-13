@@ -1,5 +1,3 @@
-# README
-
 # SK8ER_BOi
 
 ## サイト概要
