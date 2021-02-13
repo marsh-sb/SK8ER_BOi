@@ -8,8 +8,6 @@ class Park < ApplicationRecord
     validates :parkname, length: { maximum: 25 }
     validates :parkbody
     validates :address
-    validates :latitude
-    validates :longitude
   end
 
 
