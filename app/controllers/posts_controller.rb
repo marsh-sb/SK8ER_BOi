@@ -7,12 +7,14 @@ class PostsController < ApplicationController
              .page(params[:page]).per(10)
     @tags = Post.tag_counts_on(:tags).order('count DESC')
     if @tag = params[:tag_name]   # タグ検索用
-       @posts = Post.tagged_with(params[:tag_name])   # タグに紐付く投稿
+       @posts = Post.tagged_with(params[:tag_name]) # タグに紐付く投稿
+                    .page(params[:page]).per(10)
     end
   end
 
   def search
     @posts = Post.search(params[:search])
+                 .page(params[:page]).per(10)
     @value = params[:search]
   end
 
