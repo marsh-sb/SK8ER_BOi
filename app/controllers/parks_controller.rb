@@ -39,7 +39,7 @@ class ParksController < ApplicationController
     if @park.update(park_params)
       redirect_to park_path(@park)
     else
-      render :edit
+      render "edit"
     end
   end
 

@@ -3,7 +3,7 @@
     <h2 class="text-center">パークの編集</h2>
   <hr class="border-line"/>
 
-  <%= form_for @park do |f| %>
+  <%= form_with model:@park, local:true do |f| %>
   <div class="row new-park-error_message">
     <%= render 'layouts/error_message', model: @park %>
   </div>
@@ -32,10 +32,14 @@
     <div class="input-group m-3">
       <span class="input-group-text">画像の選択</span>
       <div class="col-12 m-3">
-        <%= attachment_image_tag @park, :park_image, style: "border-radius: 15px;", fallback: "no-image.jpg", class: "post-edit-post-image" %>
+        <% if @park.park_image.present? %>
+          <%= attachment_image_tag @park, :park_image, size: "300x300", style: "border-radius: 15px;", class: "post-edit-image" %>
+        <% else %>
+          <%= image_tag "no-image.jpg", size: "300x300", style: "border-radius: 15px;", class: "post-edit-image" %>
+        <% end %>
       </div>
       <div class="row m-3">
-        <input class="form-control form-control-lg" id="formFileLg" type="file">
+        <%= f.attachment_field :park_image, class: "select-image" %>
       </div>
     </div>
   </div>
