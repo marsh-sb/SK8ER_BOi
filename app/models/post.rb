@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 25 }
     validates :body
+    validates :image
   end
 
   def favorited_by?(user)
