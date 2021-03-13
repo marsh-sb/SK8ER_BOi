@@ -39,8 +39,9 @@ class PostsController < ApplicationController
     if @post.save
       tags = Vision.get_image_data(@post.image)
       tags.each do |tag|
-        @post.tags.create(name: tag)
+        @post.tag_list.add(tag)
       end
+      @post.save
       redirect_to post_path(@post)
     else
       render "new"
