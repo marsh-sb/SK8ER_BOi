@@ -31,6 +31,11 @@
           <% end %>
         </p>
       </div>
+      <p class="post-index-post-time">
+        <time>
+          <%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+        </time>
+      </p>
     </div>
   <% end %>
 
