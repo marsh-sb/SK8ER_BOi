@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         @post.tag_list.add(tag)
       end
       @post.save
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: '投稿に成功しました'
     else
       render "new"
     end
