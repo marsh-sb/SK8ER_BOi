@@ -19,7 +19,7 @@ class ParksController < ApplicationController
     @park = Park.new(park_params)
     @park.user_id = current_user.id
     if @park.save
-      redirect_to park_path(@park)
+      redirect_to park_path(@park), notice: '投稿に成功しました'
     else
       render "new"
     end
